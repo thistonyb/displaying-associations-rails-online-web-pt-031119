@@ -25,4 +25,9 @@ class CategoriesController < ApplicationController
     category.update(params.require(:category))
     redirect_to category_path(category)
   end
+
+  private
+  category_params(*args)
+    params.require(:category).permit(*args)
+  end
 end
